@@ -36,16 +36,16 @@ def registration_form():
             if code_presentation:
                 st.write(code_presentation)
         
-        # Generate output
-        output = {
-            "Year" : year,
-            "id_student" : studentID,
-            "code_presentation" : code_presentation,
-            "WithdrawnStatus" : withdrawnstatus
-        }
+    # Generate output
+    output = {
+        "Year" : year,
+        "id_student" : studentID,
+        "code_presentation" : code_presentation,
+        "WithdrawnStatus" : withdrawnstatus
+     }
         
-        # Save output to MongoDB
-        save_to_mergeStudRegAndCourses(output)
+    # Save output to MongoDB
+    save_to_mergeStudRegAndCourses(output)
             
 
 # Save to mergeAssessment
@@ -84,20 +84,19 @@ def assessment():
             if result:
                 st.write(result)
                 
-         # Generate output
-         output = 
-         {
-             "id_assessment" : assessmentID,
-             "code_presentation" : code_presentation,
-             "id_student" : studentID,
-             "Result" ：result,
-             "code_module" : course,
-             "Late_submission" : late_submit,
-             "Year" : year
-         }
+    # Generate output
+    output = {
+        "id_assessment" : assessmentID,
+        "code_presentation" : code_presentation,
+        "id_student" : studentID,
+        "Result" ：result,
+        "code_module" : course,
+        "Late_submission" : late_submit,
+        "Year" : year
+    }
         
-         # Save output to MongoDB
-         save_to_mergeAssessment(output)
+    # Save output to MongoDB
+    save_to_mergeAssessment(output)
 
 # Save to mergeVle
 def save_to_mergeVle(output):
@@ -120,15 +119,14 @@ def vle():
                 st.write(activity_type)
             st.write(sum_click)
         
-        # Generate output
-        output = 
-        {
-            "activity_type" : activity_type,
-            "sum_click" : sum_click
-         }
+    # Generate output
+    output = {
+        "activity_type" : activity_type,
+        "sum_click" : sum_click
+    }
         
-         # Save output to MongoDB
-         save_to_mergeVle(output)
+    # Save output to MongoDB
+    save_to_mergeVle(output)
 
 # Save to studentInfo
 def save_to_studentInfo(output):
@@ -192,28 +190,27 @@ def student_info():
             if studied_credits:
                 st.write(studied_credits)
         
-        # Generate output
-        output = 
-        {
-            "gender" : gender,
-            "id_student" : studentID,
-            "code_presentation" : code_presentation,
-            "num_of_prev_attempts" : num_of_prev_attempts,
-            "highest_education" : highest_education,
-            "disability" : disability,
-            "age_band": age_band,
-            "region" : region.
-            "sum_click" : sum_click,
-            "code_module" : course,
-            "Before_Clicks" : Before_Clicks,
-            "code_presentation" : code_presentation,
-            "After_Clicks" : After_Clicks,
-            "final_result" : final_result,
-            "studied_credits" : studied_credits
-         }
+    # Generate output
+    output = {
+        "gender" : gender,
+        "id_student" : studentID,
+        "code_presentation" : code_presentation,
+        "num_of_prev_attempts" : num_of_prev_attempts,
+        "highest_education" : highest_education,
+        "disability" : disability,
+        "age_band": age_band,
+        "region" : region.
+        "sum_click" : sum_click,
+        "code_module" : course,
+        "Before_Clicks" : Before_Clicks,
+        "code_presentation" : code_presentation,
+        "After_Clicks" : After_Clicks,
+        "final_result" : final_result,
+        "studied_credits" : studied_credits
+    }
         
-          # Save output to MongoDB
-          save_to_studentInfo(output)
+    # Save output to MongoDB
+    save_to_studentInfo(output)
         
         
 #image url
