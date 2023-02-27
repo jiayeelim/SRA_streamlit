@@ -21,7 +21,7 @@ def registration_form():
     semester = ['2013B', '2013J', '2014B', '2014J']
 
     with st.form("StudRegAndCourseForm", clear_on_submit=True):
-        studentID = st.text_input("Enter student ID")
+        studentID = st.number_input("Enter student ID")
         code_presentation = st.selectbox('Select semester', semester)
         year = st.selectbox('Select year', year_list)
         withdrawnstatus = st.radio('Select a withdrawn status', ['0', '1'])
@@ -62,8 +62,8 @@ def assessment():
     code_module = ['AAA','BBB','CCC','DDD','EEE','FFF','GGG']
 
     with st.form("StudRegAndCourseForm", clear_on_submit=True):
-        assessmentID = st.text_input("Enter assessment ID")
-        studentID = st.text_input("Enter student ID")
+        assessmentID = st.number_input("Enter assessment ID")
+        studentID = st.number_input("Enter student ID")
         code_presentation = st.selectbox('Select semester', semester)
         course = st.selectbox('Select code module', code_module)
         year = st.selectbox('Select year', year_list)
@@ -111,7 +111,7 @@ def vle():
 
     with st.form("StudRegAndCourseForm", clear_on_submit=True):
         activity_type = st.selectbox('Select semester', activity)
-        sum_click = st.text_input("Enter sum of clicks")
+        sum_click = st.number_input("Enter sum of clicks")
         button = st.form_submit_button("Submit")
 
         if button:
@@ -145,19 +145,19 @@ def student_info():
     region_ = ['East Aglian Region','East Midlands Region','Ireland','London Region','North Region','North Western Region','Scotland','South East Region','South Region','South West Region','Wales','West Midlands Region','Yorkshire Region']
 
     with st.form("StudentInfoForm", clear_on_submit=True):
-        studentID = st.text_input("Enter student ID")
+        studentID = st.number_input("Enter student ID")
         gender = st.radio('Select gender', ['M', 'F'])
         age_band = st.selectbox('Select age band', ageband)
         highest_education = st.selectbox('Select highest education level', education)
         region = st.selectbox('Select region', region_)
         disability = st.radio('Select disability status', ['Y', 'N'])
         num_of_prev_attempts = st.selectbox('Select number of previous attempts', numofattempts)
-        studied_credits = st.text_input("Enter studied credits")
+        studied_credits = st.number_input("Enter studied credits")
         code_presentation = st.selectbox('Select semester', semester)
         course = st.selectbox('Select code module', code_module)
-        sum_click = st.text_input("Enter sum of clicks")
-        After_Clicks = st.text_input("Enter sum of after clicks")
-        Before_Clicks = st.text_input("Enter sum of before clicks")
+        sum_click = st.number_input("Enter sum of clicks")
+        After_Clicks = st.number_input("Enter sum of after clicks")
+        Before_Clicks = st.number_input("Enter sum of before clicks")
         final_result = st.radio('Select result', ['Distinction', 'Pass', 'Fail', 'Withdrawn'])
         submitbutton = st.form_submit_button("Submit")
         
