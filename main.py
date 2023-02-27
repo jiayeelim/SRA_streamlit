@@ -41,7 +41,7 @@ def registration_form():
             "Year" : year,
             "id_student" : studentID,
             "code_presentation" : code_presentation,
-            "WithdrawnStatus" ：withdrawnstatus
+            "WithdrawnStatus" : withdrawnstatus
         }
         
         # Save output to MongoDB
