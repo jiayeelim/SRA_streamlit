@@ -1,8 +1,17 @@
 import streamlit as st
+import pymongo
 
 # Set page configurations
 st.set_page_config(page_title="Student Registration Form", page_icon=":mortar_board:")
 
+#Connect to MongoDB
+client = pymongo.MongoClient("mongodb+srv://jiayee:utm12345@cluster0.bp5pdg7.mongodb.net/?retryWrites=true&w=majority")
+db = client.SRA
+
+# Save to mergeStudRegAndCourses
+def save_to_mergeStudRegAndCourses(output):
+    db.mergeStudRegAndCourses.insert_one(output)
+    
 # Define the function to display the registration form
 def registration_form():
     st.title("Student Registration Form")
@@ -26,7 +35,23 @@ def registration_form():
                 st.write(year)
             if code_presentation:
                 st.write(code_presentation)
+        
+        # Generate output
+        output = {
+            "Year" : year,
+            "id_student" : studentID,
+            "code_presentation" : code_presentation,
+            "WithdrawnStatus" ：withdrawnstatus
+        }
+        
+        # Save output to MongoDB
+        save_to_mergeStudRegAndCourses(output)
+            
 
+# Save to mergeAssessment
+def save_to_mergeAssessment(output):
+    db.mergeAssessment.insert_one(output)
+    
 # Define the function to display the Assessment form
 def assessment():
     st.title("Assessment Form")
@@ -37,6 +62,7 @@ def assessment():
     code_module = ['AAA','BBB','CCC','DDD','EEE','FFF','GGG']
 
     with st.form("StudRegAndCourseForm", clear_on_submit=True):
+        assessmentID = st.text_input("Enter assessment ID")
         studentID = st.text_input("Enter student ID")
         code_presentation = st.selectbox('Select semester', semester)
         course = st.selectbox('Select code module', code_module)
@@ -57,7 +83,25 @@ def assessment():
                 st.write(late_submit)
             if result:
                 st.write(result)
+                
+         # Generate output
+         output = {
+             "id_assessment" : assessmentID,
+             "code_presentation" : code_presentation,
+             "id_student" : studentID,
+             "Result" ：result,
+             "code_module" : course,
+             "Late_submission" : late_submit,
+             "Year" : year
+         }
+        
+         # Save output to MongoDB
+         save_to_mergeAssessment(output)
 
+# Save to mergeVle
+def save_to_mergeVle(output):
+    db.mergeVle.insert_one(output)
+    
 # Define the function to display the Vle page
 def vle():
     st.title("Virtual Learning Environment(VLE) Form")
@@ -74,7 +118,20 @@ def vle():
             if activity_type:
                 st.write(activity_type)
             st.write(sum_click)
-            
+        
+         # Generate output
+         output = {
+             "activity_type" : activity_type,
+             "sum_click" : sum_click
+          }
+        
+          # Save output to MongoDB
+          save_to_mergeVle(output)
+
+# Save to studentInfo
+def save_to_studentInfo(output):
+    db.studentInfo.insert_one(output)
+    
 def student_info():
     st.title("Student Info Form")
     st.subheader("Enter details below")
@@ -132,7 +189,30 @@ def student_info():
                 st.write(final_result)
             if studied_credits:
                 st.write(studied_credits)
-
+        
+        # Generate output
+         output = {
+             "gender" : gender,
+             "id_student" : studentID,
+             "code_presentation" : code_presentation,
+             "num_of_prev_attempts" : num_of_prev_attempts,
+             "highest_education" : highest_education,
+             "disability" : disability,
+             "age_band": age_band,
+             "region" : region.
+             "sum_click" : sum_click,
+             "code_module" : course,
+             "Before_Clicks" : Before_Clicks,
+             "code_presentation" : code_presentation,
+             "After_Clicks" : After_Clicks,
+             "final_result" : final_result,
+             "studied_credits" : studied_credits
+          }
+        
+          # Save output to MongoDB
+          save_to_studentInfo(output)
+        
+        
 #image url
 image_url = "https://varteq.com/wp-content/uploads/2020/08/learning_analytics-680x360.png"
 
