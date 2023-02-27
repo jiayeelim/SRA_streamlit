@@ -89,7 +89,7 @@ def assessment():
         "id_assessment" : assessmentID,
         "code_presentation" : code_presentation,
         "id_student" : studentID,
-        "Result" ：result,
+        "Result" : result,
         "code_module" : course,
         "Late_submission" : late_submit,
         "Year" : year
