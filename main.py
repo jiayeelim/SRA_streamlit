@@ -85,7 +85,8 @@ def assessment():
                 st.write(result)
                 
          # Generate output
-         output = {
+         output = 
+         {
              "id_assessment" : assessmentID,
              "code_presentation" : code_presentation,
              "id_student" : studentID,
@@ -119,14 +120,15 @@ def vle():
                 st.write(activity_type)
             st.write(sum_click)
         
-         # Generate output
-         output = {
-             "activity_type" : activity_type,
-             "sum_click" : sum_click
-          }
+        # Generate output
+        output = 
+        {
+            "activity_type" : activity_type,
+            "sum_click" : sum_click
+         }
         
-          # Save output to MongoDB
-          save_to_mergeVle(output)
+         # Save output to MongoDB
+         save_to_mergeVle(output)
 
 # Save to studentInfo
 def save_to_studentInfo(output):
@@ -191,23 +193,24 @@ def student_info():
                 st.write(studied_credits)
         
         # Generate output
-         output = {
-             "gender" : gender,
-             "id_student" : studentID,
-             "code_presentation" : code_presentation,
-             "num_of_prev_attempts" : num_of_prev_attempts,
-             "highest_education" : highest_education,
-             "disability" : disability,
-             "age_band": age_band,
-             "region" : region.
-             "sum_click" : sum_click,
-             "code_module" : course,
-             "Before_Clicks" : Before_Clicks,
-             "code_presentation" : code_presentation,
-             "After_Clicks" : After_Clicks,
-             "final_result" : final_result,
-             "studied_credits" : studied_credits
-          }
+        output = 
+        {
+            "gender" : gender,
+            "id_student" : studentID,
+            "code_presentation" : code_presentation,
+            "num_of_prev_attempts" : num_of_prev_attempts,
+            "highest_education" : highest_education,
+            "disability" : disability,
+            "age_band": age_band,
+            "region" : region.
+            "sum_click" : sum_click,
+            "code_module" : course,
+            "Before_Clicks" : Before_Clicks,
+            "code_presentation" : code_presentation,
+            "After_Clicks" : After_Clicks,
+            "final_result" : final_result,
+            "studied_credits" : studied_credits
+         }
         
           # Save output to MongoDB
           save_to_studentInfo(output)
