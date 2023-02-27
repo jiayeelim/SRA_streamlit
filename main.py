@@ -38,10 +38,10 @@ def registration_form():
         
     # Generate output
     output = {
-        "Year" : year,
-        "id_student" : studentID,
+        "Year" : int(year),
+        "id_student" : int(studentID),
         "code_presentation" : code_presentation,
-        "WithdrawnStatus" : withdrawnstatus
+        "WithdrawnStatus" : bool(withdrawnstatus)
      }
         
     # Save output to MongoDB
@@ -86,13 +86,13 @@ def assessment():
                 
     # Generate output
     output = {
-        "id_assessment" : assessmentID,
+        "id_assessment" : int(assessmentID),
         "code_presentation" : code_presentation,
-        "id_student" : studentID,
+        "id_student" : int(studentID),
         "Result" : result,
         "code_module" : course,
-        "Late_submission" : late_submit,
-        "Year" : year
+        "Late_submission" : bool(late_submit),
+        "Year" : int(year)
     }
         
     # Save output to MongoDB
@@ -122,7 +122,7 @@ def vle():
     # Generate output
     output = {
         "activity_type" : activity_type,
-        "sum_click" : sum_click
+        "sum_click" : int(sum_click)
     }
         
     # Save output to MongoDB
@@ -193,20 +193,20 @@ def student_info():
     # Generate output
     output = {
         "gender" : gender,
-        "id_student" : studentID,
+        "id_student" : int(studentID),
         "code_presentation" : code_presentation,
-        "num_of_prev_attempts" : num_of_prev_attempts,
+        "num_of_prev_attempts" : int(num_of_prev_attempts),
         "highest_education" : highest_education,
         "disability" : disability,
         "age_band": age_band,
         "region" : region,
-        "sum_click" : sum_click,
+        "sum_click" : int(sum_click),
         "code_module" : course,
-        "Before_Clicks" : Before_Clicks,
+        "Before_Clicks" : int(Before_Clicks),
         "code_presentation" : code_presentation,
-        "After_Clicks" : After_Clicks,
+        "After_Clicks" : int(After_Clicks),
         "final_result" : final_result,
-        "studied_credits" : studied_credits
+        "studied_credits" : int(studied_credits)
     }
         
     # Save output to MongoDB
