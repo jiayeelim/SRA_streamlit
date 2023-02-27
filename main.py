@@ -199,7 +199,7 @@ def student_info():
         "highest_education" : highest_education,
         "disability" : disability,
         "age_band": age_band,
-        "region" : region.
+        "region" : region,
         "sum_click" : sum_click,
         "code_module" : course,
         "Before_Clicks" : Before_Clicks,
